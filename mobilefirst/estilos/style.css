@@ -90,11 +90,6 @@ main{
    
 }
 
-/*
-article{
-    width: 80%;
-}*/
-
 article >p{
     text-align: justify;
     margin-bottom: 20px;
