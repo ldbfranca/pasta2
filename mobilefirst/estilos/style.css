@@ -38,9 +38,6 @@ span#burger:hover{
     color: black;
 }
 
-
-
-
 menu{
     display: none; /*pra ele nao aparecer*/
 }
@@ -56,13 +53,6 @@ a:visited{
     color: black;
 }
 
-/*menu > ul > li{
-    border: 1px solid black;
-    border-radius: 10px;
-}*/
-
-
-
 menu > ul > li > a{
     display: block;
     padding: 10px;
@@ -76,6 +66,7 @@ menu > ul > li > a:hover{
     background-color: #04ADBF;
     border: 2px solid black;
     border-radius: 15px;
+    color: white;
 }
 
 main{
