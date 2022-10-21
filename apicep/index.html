@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CEP ViaCep</title>
+    <style>
+        #resultado{
+            padding: 10px;
+            margin-top: 10px;
+            max-width: 350px;
+            background-color: lightblue;
+            border: 1px solid black;
+            border-radius: 10px;
+            box-shadow: 2px 2px black;
+        }
+    </style>
+</head>
+<body>
+    <h1>Consulta do endereço pelo cep</h1>
+    <label>digite seu cep   </label>
+    <input type="number" name="numero" id="cep">
+
+    <button onclick="endereco()" >consultar</button>
+
+    <div id="resultado">
+        <p></p>
+    </div>
+
+    <script>
+        function endereco(){
+            let cep = document.querySelector('#cep').value;
+
+
+
+            if (cep.length != 8){
+                alert("cep inválido");
+                return
+            }
+            let url = `https://viacep.com.br/ws/${cep}/json/`;
+
+
+
+            fetch(url).then(function(response){
+                console.log(response);
+                response.json().then(function(data){
+                    console.log(data)
+                    mostrar(data);
+                })
+
+            });
+        }
+        function mostrar(dados){
+            let resultado = document.querySelector('#resultado');
+
+            if(dados.erro){
+                resultado.innerHTML = 'não foi possivel encontrar o erro'
+            }else{
+
+            resultado.innerHTML = `<br>Endereço: ${dados.logradouro}<br>
+                                Bairro: ${dados.bairro}<br>
+                                Cidade: ${dados.localidade} - ${dados.uf}<br>
+                                CEP: ${dados.cep}<br>
+                                ddd: ${dados.ddd}<br>
+                                guia: ${dados.gia}<br>
+                                Número IBGE: ${dados.ibge}<br>`
+        }}
+    </script>
+</body>
+</html>
