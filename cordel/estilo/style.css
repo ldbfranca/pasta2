@@ -94,6 +94,15 @@ section#id02{
 }
 
 
+
+section#id03{
+    background-image: url("../imagens/img31.jpg");
+    background-position: right center;
+    background-size: cover;
+}
+
+
+
 section.imagem > p{
     display: inline-block;
     padding: 10px;
